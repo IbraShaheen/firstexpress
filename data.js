@@ -2,22 +2,23 @@ const movies = [
     {
       id: 1,
       name: "the last samurai",
-      watched: true,
+      slug: "the-last-samurai"
     },
     {
       id: 2,
       name: "Pink panther",
-      watched: true,
+      slug: "pink-panther"
     },
     {
       id: 3,
       name: "Fast & Furious",
-      watched: false,
+      slug: "fast-&-furious"
+
     },
     {
       id: 4,
       name: "Joker",
-      watched: false,
+      slug: "joker"
     },
   ];
   
