@@ -10,7 +10,8 @@
     "global": "^4.4.0",
     "nodemon": "^2.0.7"
   },
-  "sctipts": {
+
+  "scripts": {
     "start": "nodemon app.js"
   }
 }
