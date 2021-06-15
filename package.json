@@ -1,0 +1,16 @@
+{
+  "name": "firstexpress",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/IbraShaheen/firstexpress.git",
+  "author": "IbraShaheen <engibraheem1995@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "nodemon": "^2.0.7"
+  },
+  "sctipts": {
+    "start": "nodemon app.js"
+  }
+}
