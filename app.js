@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-let data = require("./data")
+// let data = require("./data")
+
+const db = require("./db/models")
 
 
 
@@ -12,8 +14,17 @@ app.use(express.json()); // before all of our routes
 app.use("/movies", moviesRouters);
 
 
-const PORT = 8080;
 
-app.listen(PORT, () => 
-console.log(`The application runs on localhost: ${PORT}`)
-);
+
+
+// db.sequelize.authenticate();
+
+// db.sequelize.sync();
+
+// db.sequelize.sync();
+
+db.sequelize.sync();
+
+
+
+app.listen(8080);

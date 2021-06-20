@@ -1,11 +1,13 @@
 const express = require("express");
 
-let data = require("../data");
+// let data = require("../data");
 // controllers import here
 
-const moviesControllers = require("../controllers/moviesControllers");
 
-const { movieCreate, movieDelete, moviesList, movieDetail } = require("../controllers/moviesControllers");
+// this is the first way
+//const moviesControllers = require("../controllers/moviesControllers");
+
+const { movieCreate, movieDelete, moviesList, movieDetail, movieUpdate } = require("../controllers/moviesControllers");
 
 
 const router = express.Router();
@@ -22,5 +24,7 @@ router.delete("/:movieId", movieDelete);
 
 // movies create route
 router.post("/", movieCreate);
+
+router.put("/:movieId",movieUpdate);
 
 module.exports = router;
