@@ -13,8 +13,9 @@ price:{type:DataTypes.INTEGER,
             min:3
     }
 },
-image : {type:DataTypes.STRING,  validate: {isUrl: true},  allowNull:false},
+image : {type:DataTypes.STRING,   allowNull:false},
 
+// image : {type:DataTypes.STRING,  validate: {isUrl: true},  allowNull:false},
 })
 
 

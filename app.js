@@ -14,17 +14,27 @@ app.use(express.json()); // before all of our routes
 app.use("/movies", moviesRouters);
 
 
-
-
-
 // db.sequelize.authenticate();
 
 // db.sequelize.sync();
 
 // db.sequelize.sync();
 
-db.sequelize.sync();
+db.sequelize.sync({alert: true});
 
+
+// Not found middleware done
+app.use((req,res,next)=> {
+    res.status(404).json({msg: "Path not found"})
+});
+
+
+// Error middlware
+app.use((err,req,res,next) => {
+    res.status(err.status ?? 500).json({message: err.message ?? "Internal server error"});
+
+   // or this >>>>>> res.status(err.status || 500).json({message: err.message || "Internal server error"});
+});
 
 
 app.listen(8080);
