@@ -64,6 +64,8 @@ exports.movieDetail = (req, res,next) => {
 
   exports.movieCreate = async (req, res, next) => {
     try {
+      req.body.image=`http://localhost:8080/media/${req.file.filename}`
+
         const newMovie = await Movie.create(req.body);
         res.status(201).json(newMovie)
 
@@ -109,6 +111,7 @@ exports.movieDetail = (req, res,next) => {
   exports.movieDelete =async (req, res, next) => {
     try {
       await req.movie.destroy();
+      // this >> await req.foundMovie.destroy();
       res.status(204).end();
     } catch (err) {
       next(error);
@@ -137,12 +140,24 @@ exports.movieDetail = (req, res,next) => {
 
 // exports.movieUpdate =async (req, res, next) => await req.movie.update(req.body);
 
+// exports.movieUpdate =async (req, res, next) => {
+//   try {
+//     await req.movie.update(req.body)
+//     // this >> await req.foundMovie.update(req.body);
+//     res.status(204).end();
+//   } catch (err) {
+//     next(error);
+//   }
+// };
+
 exports.movieUpdate =async (req, res, next) => {
   try {
+    req.body.image=`http://${req.get("host")}/media/${req.file.filename}`
+    
     await req.movie.update(req.body)
-    res.status(204).end();
+    res.json(req.movie);
   } catch (err) {
-    next(error);
+    next(err);
   }
 };
 

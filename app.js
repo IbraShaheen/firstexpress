@@ -4,15 +4,24 @@ const app = express();
 
 const db = require("./db/models")
 
-
+///
+const cors = require("cors")
 
 const moviesRouters = require("./routes/moviesRoutes")
 
+const path = require("path");
+
+
+///
+app.use(cors())
+
 app.use(express.json()); // before all of our routes
+
 
 // to get the array of data
 app.use("/movies", moviesRouters);
 
+app.use("/media",express.static(path.join(__dirname,"media")))
 
 // db.sequelize.authenticate();
 
@@ -20,7 +29,7 @@ app.use("/movies", moviesRouters);
 
 // db.sequelize.sync();
 
-db.sequelize.sync({alert: true});
+db.sequelize.sync({alter: true});
 
 
 // Not found middleware done

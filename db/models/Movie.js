@@ -10,12 +10,14 @@ price:{type:DataTypes.INTEGER,
     defaultValue:5,
 
     validate: {
-            min:3
+            min:0
     }
 },
-image : {type:DataTypes.STRING,   allowNull:false},
+image : {type:DataTypes.STRING},
 
 // image : {type:DataTypes.STRING,  validate: {isUrl: true},  allowNull:false},
+
+description: {type:DataTypes.STRING}
 })
 
 

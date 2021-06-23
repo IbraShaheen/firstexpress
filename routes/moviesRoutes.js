@@ -1,5 +1,11 @@
 const express = require("express");
 
+
+const { DATE } = require("sequelize");
+//const multer = require("multer");
+
+const upload = require("../media/middleWare/multer")
+
 // let data = require("../data");
 
 // this is the first way
@@ -11,10 +17,22 @@ const { movieCreate, movieDelete, moviesList, movieDetail, movieUpdate, fetchMov
 const router = express.Router();
 
 
+// const storage = multer.diskStorage({
+//    destination:"./media",
+//    filename:(req,file,cb) => {
+//        cb(null, `${+new Date()}${file.originalname}`)
+//    }
+// })
+
+// const upload = multer({
+//     storage:storage
+// })
+
+
 // to avoid repeting with fetch function
 router.param("movieId",async (req,res,next,movieId)=>{
     const foundMovie = await fetchMovie(movieId,next)
-//    req.movie=movie;
+        // req.movie=movie;
 
     if(foundMovie){
         req.movie=foundMovie;
@@ -26,6 +44,9 @@ router.param("movieId",async (req,res,next,movieId)=>{
 })
 
 
+
+// movies create route
+router.post("/",upload.single("image"), movieCreate);
 
 
 // to get the array of data
@@ -39,9 +60,8 @@ router.get("/:movieId", movieDetail);
 // movies delete route
 router.delete("/:movieId", movieDelete);
 
-// movies create route
-router.post("/", movieCreate);
 
-router.put("/:movieId",movieUpdate);
+// movies update route
+router.put("/:movieId",upload.single("image"),movieUpdate);
 
 module.exports = router;
