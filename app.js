@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 // let data = require("./data")
 
-const db = require("./db/models")
+//before migration// const db = require("./db/models")
 
 ///
 const cors = require("cors")
@@ -29,7 +29,7 @@ app.use("/media",express.static(path.join(__dirname,"media")))
 
 // db.sequelize.sync();
 
-db.sequelize.sync({alter: true});
+//before migration// db.sequelize.sync({alter: true});
 
 
 // Not found middleware done

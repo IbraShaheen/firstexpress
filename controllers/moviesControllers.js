@@ -64,7 +64,7 @@ exports.movieDetail = (req, res,next) => {
 
   exports.movieCreate = async (req, res, next) => {
     try {
-      req.body.image=`http://localhost:8080/media/${req.file.filename}`
+     //before migration// req.body.image=`http://localhost:8080/media/${req.file.filename}`
 
         const newMovie = await Movie.create(req.body);
         res.status(201).json(newMovie)
@@ -152,7 +152,7 @@ exports.movieDetail = (req, res,next) => {
 
 exports.movieUpdate =async (req, res, next) => {
   try {
-    req.body.image=`http://${req.get("host")}/media/${req.file.filename}`
+   //before migration// req.body.image=`http://${req.get("host")}/media/${req.file.filename}`
     
     await req.movie.update(req.body)
     res.json(req.movie);
