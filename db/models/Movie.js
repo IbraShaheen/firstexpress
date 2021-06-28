@@ -28,6 +28,24 @@ module.exports = (sequelize, DataTypes) => {
         source: ["name"],
       });
 
+
+
+
+        Movie.associate = (models) => {
+            models.Shop.hasMany(Movie, {
+
+              foreignKey: "shopId",
+                allowNull:false,
+                as:"movies"
+            });
+            Movie.belongsTo(models.Shop,{
+              foreignKey: "shopId"
+            });
+        }
+
+
+
+
       return Movie;
     };
 

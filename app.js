@@ -8,6 +8,7 @@ const app = express();
 const cors = require("cors")
 
 const moviesRouters = require("./routes/moviesRoutes")
+const shopsRoutes = require("./routes/shopsRoutes")
 
 const path = require("path");
 
@@ -19,7 +20,11 @@ app.use(express.json()); // before all of our routes
 
 
 // to get the array of data
+
 app.use("/movies", moviesRouters);
+app.use("/shops", shopsRoutes);
+
+
 
 app.use("/media",express.static(path.join(__dirname,"media")))
 

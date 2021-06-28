@@ -31,7 +31,7 @@ exports.moviesList = async (req, res,next) =>  {
     const movies = await Movie.findAll({
 
         attributes : {exclude: ["createdAt","updatedAt"]}
-
+        
     }
     );
         res.json(movies);
@@ -61,10 +61,10 @@ exports.movieDetail = (req, res,next) => {
 
 
 
-
+/*
   exports.movieCreate = async (req, res, next) => {
     try {
-     //before migration// req.body.image=`http://localhost:8080/media/${req.file.filename}`
+     req.body.image=`http://localhost:8080/media/${req.file.filename}`
 
         const newMovie = await Movie.create(req.body);
         res.status(201).json(newMovie)
@@ -74,6 +74,7 @@ exports.movieDetail = (req, res,next) => {
         // res.status(500).json({msg: error.message ?? "server error"})
     }  
 };
+*/
 
 
 

@@ -44,10 +44,10 @@ router.param("movieId",async (req,res,next,movieId)=>{
 })
 
 
-
+/*
 // movies create route
 router.post("/",upload.single("image"), movieCreate);
-
+*/
 
 // to get the array of data
 
